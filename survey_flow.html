@@ -1,0 +1,320 @@
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.css" media="screen" rel="stylesheet" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">p.yellow::selection {
+    color: black;
+    background: yellow;
+}
+p.yellow::-moz-selection { /* Code for Firefox */
+    color: black;
+    background: yellow;
+}T
+</style>
+<script type="text/javascript">
+    window.onload = function() {document.getElementById('submitButton').setAttribute('onclick', 'return validateForm()'); };
+
+    function validateForm() {
+        var radios = document.getElementsByName('ans');
+        for (var i = 0, length = radios.length; i < length; i++) {
+            if (radios[i].checked) {
+                if (i === 4) {
+                    // const sometimes = document.getElementById('sometimes');
+                    // if (sometimes.value === '') {
+                    alert("you have to answer the followup question");
+                    return false
+                    // }
+                }
+                if (i === 2 || i === 3) {
+                    const no = document.getElementById('no');
+                    if (no.value === '') {
+                        alert("you have to write a verb when choosing this answer");
+                        return false
+                    }
+                }
+                return true;
+            }
+        }
+        alert("you have to choose one of the options");
+        return false;
+    }
+
+</script>
+<section class="container" id="instructions" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;">
+    <div class="row col-xs-10 col-md-10" style="margin:auto"><!-- Instructions -->
+        <div class="panel panel-primary">
+            <div class="panel-heading"><a href="javascript:;" onmousedown="if(document.getElementById('collapse1').style.display === 'none'){ document.getElementById('collapse1').style.display = 'block'; }else{ document.getElementById('collapse1').style.display = 'none'; }" style="color: white"><strong>Instructions (click to collapse / expand)</strong> </a></div>
+
+            <div class="panel-body">
+                <div id="collapse1" style="display:inline">
+                    <p class="red-temp">In this task, you will use your knowledge about language (and common sense) to determine which sentiment is presented by the author of the text.</p>
+                    <!--<p>&nbsp;</p>-->
+
+                    <h4>Task Definition</h4>
+
+                    <ul><!--	If the first sentence is true, Could the first sentence infer the second one--><!--	knowing the first sentence, do you know the second one is true-->
+                        <li>Carefully read the text.</li>
+                        <li>The text is taken from a mail and need to be addressed in this context (a formal and implicit one).</li>
+                        <li>Please addressed formal gestures in the text e.g. ending a mail with <b>'Thanks'</b> or <b>'Best regards'</b> as a neutral tone.</li>
+                        <li>Sometimes you will see mail headers in the text,<b> please ignore those headers</b>. <br />
+                    </ul>
+
+                    <div class="alert alert-success">Make sure to read all the examples and their explanations to get a notion of the different cases</div>
+                </div>
+            </div>
+        </div>
+        <!-- Examples -->
+
+        <div class="panel panel-info">
+            <div class="panel-heading"><a href="javascript:;" onmousedown="if(document.getElementById('collapse2').style.display === 'none'){ document.getElementById('collapse2').style.display = 'block'; }else{ document.getElementById('collapse2').style.display = 'none'; }"><strong>Examples (click to collapse / expand)</strong> </a></div>
+
+            <div class="panel-body">
+                <div class="container">
+                    <div id="collapse2" style="display:inline"><!--  -->
+                        <div class="container"><!-- <h2>Examples</h2> -->
+                            <ul class="nav nav-tabs" style="display: inline-block;">
+                                <li class="active"><a data-toggle="tab" href="#example1">Example 1</a></li>
+                                <li><a data-toggle="tab" href="#example2">Example 2</a></li>
+                                <li><a data-toggle="tab" href="#example3">Example 3</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="example1">&nbsp;
+                                    <p id="text_example1a" style="font-weight:normal;">Text: Hey, Thanks for your mail. Regards, John </p>
+
+                                    <label>What is the emotion presented in the text by the author?</label>
+
+                                    <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example1" type="radio" value="1" /> Negative Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example1" type="radio" value="1" /> Positive Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input checked="checked" disabled="disabled" name="example1" type="radio" value="2" /> Miscellaneous Sentiment</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    &nbsp;
+                                    <label>Does the writer of the mail present a sentiment of Avoidance?</label><br />
+                                    <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" /> Yes <input checked="checked" disabled="disabled" name="example1" onclick="" type="radio" value="3" /> No
+                                &nbsp;
+                                <label>Does the writer of the mail present a sentiment of Obedience? </label><br />
+                                <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" /> Yes <input checked="checked" disabled="disabled" name="example1" onclick="" type="radio" value="3" /> No
+                            &nbsp;
+                            <label>what Emotion describe the text best? </label><br />
+                            <label>
+                                <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                            </label> curiosity
+                            <label>
+                                <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                            </label> realization
+                            <label>
+                                <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                            </label> surprise
+                            <label>
+                                <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                            </label> confusion
+                            <label>
+                                <input  disabled="disabled" checked="checked" name="example1" onclick="" type="radio" value="2" />
+                            </label> neutral
+                        <label>                            &nbsp;
+
+                            <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                        </label> other
+                            <br>
+
+                            &nbsp;
+
+                        <div class="example1">In the text, although John used the term <b>'Thanks'</b> it doesn't signify a real gratitude buy more a manner of courtesy.<br />
+                            Therefore, when encountering this kind of texts we would wish to mark them as neutral. </div>
+                                     </div>
+
+
+                    <div class="tab-pane fade" id="example2">&nbsp;
+                        <p id="text_example2a" style="font-weight:normal;">Sentence 1: "Ajax <mark>started</mark> some moves, and soon, they were all grappling and tossing each other around."</p>
+
+                        <p id="text_example2b" style="font-weight:normal;">Sentence 2: "Ajax <mark>started demonstrating</mark> some moves, and soon, they were all grappling and tossing each other around."</p>
+                        <label>Given the first sentence is true, is the second sentence also true?</label>
+
+                        <p>Verbs that could be interpreted for the first sentence:</p>
+
+                        <table cellpadding="5" style="font-family: Verdana, Geneva, sans-serif; font-size:1em; font-style: italic">
+                            <tbody>
+                            <tr>
+                                <td>making</td>
+                                <td>practicing</td><td>planning</td>
+                            </tr>
+                            <td>trying</td>
+                            <td>throwing</td>
+
+                            </tbody>
+                        </table>
+                        &nbsp;
+
+                        <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                            <tbody>
+                            <tr>
+                                <td><input disabled="disabled" name="example2" type="radio" value="1" /> Yes</td>
+                            </tr>
+                            <tr><!--			<td><input checked="checked" disabled="disabled" name="example2" type="radio" value="2" /> Sometimes</td>-->
+                                <td><input disabled="disabled" name="example2" type="radio" value="2" /> No - <strong>please add a clarifying verb(s)</strong><textarea class="form-control input-sm" cols="20" disabled="disabled" id="example2-sometimes" name="example2-sometimes" rows="1" style="margin-top: 5px">started trying</textarea></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        &nbsp;
+
+                        <div id="example2-sequent_section">
+                            <p>Expression 1: started some moves</p>
+
+                            <p>Expression 2: started demonstrating some moves</p>
+                            <label>Can the first expression have the same meaning of the second one? </label><br />
+                            <input checked="checked" disabled="disabled" name="example2" onclick="" type="radio" value="2" /> Yes <input disabled="disabled" name="example2" onclick="" type="radio" value="3" /> No</div>
+                        &nbsp;
+
+                        <p>In this example, the second sentence can mean the same as the first sentence, but it is ambiguous and does not necessarily mean the same,<br />
+                            as it can also have the meaning of <b>simply performing</b> some moves.<br />
+                            Therefore, knowing the first sentence, doesn't necessarily make the second true, and that's why the answer is <b>No</b>.<br />
+                            Then, after selecting "No", a second question is asked.<br />
+                            In this case, as the first expression can lead to the second to be true, the answer to the second question would be "Yes". <!--	Add the marked verb from the second sentence for making the sentence grammatical (in this case we added the verb 'started' along with 'performing')<br/>--> <!--	Notice that the clarifying verb is performing, which have a different meaning from demonstrating. The verb "showing" is different, <br/>--> <!--	but is not considered as a valid answer for this example, as it doesn't provide the different meaning on how the first sentence can be read.--></p>
+                    </div>
+
+                    <div class="tab-pane fade" id="example3">&nbsp;
+                        <p id="text_example3a" style="font-weight:normal;">Sentence 1: "They jumped onto the pier and <mark>started</mark> the boat."</p>
+
+                        <p id="text_example3b" style="font-weight:normal;">Sentence 2: "They jumped onto the pier and <mark>started untying</mark> the boat."</p>
+                        <label>Given the first sentence is true, is the second sentence also true?</label>
+
+                        <p>Verbs that could be interpreted for the first sentence:</p>
+
+                        <table cellpadding="5" style="font-family: Verdana, Geneva, sans-serif; font-size:1em; font-style: italic">
+                            <tbody>
+                            <tr>
+                                <td>boarding</td>
+                                <td>rocking</td>
+                                <td>circling</td>
+                                <td>climbing</td>
+                                <td>watching</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        &nbsp;
+
+                        <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                            <tbody>
+                            <tr>
+                                <td><input disabled="disabled" name="example3" type="radio" value="1" /> Yes</td>
+                            </tr>
+                            <tr>
+                                <td><input disabled="disabled" name="example3" type="radio" value="3" /> No - <strong>please add a clarifying verb(s)</strong><textarea class="form-control input-sm" cols="20" disabled="disabled" id="example3-no" name="example3-no" rows="1" style="margin-top: 5px">activated</textarea></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        &nbsp;
+
+                        <div id="example3-sequent_section">
+                            <p>Expression 1: started the boat</p>
+
+                            <p>Expression 2: started untying the boat</p>
+                            <label>Can the first expression have the same meaning of the second one? </label><br />
+                            <input disabled="disabled" name="example3" onclick="" type="radio" value="2" /> Yes <input checked="checked" disabled="disabled" name="example3" onclick="" type="radio" value="3" /> No</div>
+                        &nbsp;
+
+                        <p>In this example, the first sentence is about turning on (igniting) a boat, whereas the second sentence,<br />
+                            talks about untying a boat.<br />
+                            Therefore, By knowing the first sentence is true, the second isn't and the answer is <b>No</b>.<br />
+                            If the clarifying verb replaces the first verb, do not include it in the answer (in this case we only added 'activated')<br />
+                            Notice the clarifying verb is "activated", as it provides a different meaning than "untying".<br />
+                            Similarly to the previous example, verbs like "untying", "unleashing" which have the same or similar meaning as the presented verb,<br />
+                            are not acceptable answer. The clarifying verb should be with a different meaning of the given one,<br />
+                            such as "activated" (the given one here), "using" or "operating" are good completions.</p>
+                    </div>
+                    <!--  --><!--  --></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    <!-- End Instructions --><!-- Content Body -->
+
+    <section>
+        <fieldset>
+            <p class="yellow" id="text_a" style="font-weight:normal;">Sentence 1: ${xcompless_text_html}</p>
+
+            <p class="yellow" id="text_b" style="font-weight:normal;">Sentence 2: ${origin_text_html}</p>
+            <br />
+            <label>Given the first sentence is true, is the second sentence always true?</label>
+
+            <p>Verbs that could be interpreted for the first sentence:</p>
+
+            <table cellpadding="5" style="font-family: Verdana, Geneva, sans-serif; font-size:1em; font-style: italic">
+                <tbody>
+                <tr>
+                    <td>${v1}</td>
+                    <td>${v2}</td>
+                    <td>${v3}</td>
+                    <td>${v4}</td>
+                    <td>${v5}</td>
+                </tr>
+                </tbody>
+            </table>
+            &nbsp;
+
+            <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                <tbody>
+                <tr>
+                    <td><input name="ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" /> Yes</td>
+                </tr>
+                <tr>
+                    <td><input name="ans" onclick="show('no'); show('sequent_section')" type="radio" value="4" /> No - <strong>please add a clarifying verb(s)</strong><textarea class="form-control input-sm" cols="20" id="no" name="no" rows="1" style="display: none; margin-top: 5px"></textarea></td>
+                </tr>
+                </tbody>
+            </table>
+            &nbsp;
+
+            <div id="sequent_section" style="display: none;">
+                <p>Expression 1: ${sub1}</p>
+
+                <p>Expression 2: ${sub2}</p>
+                <label>Can the first expression have the same meaning of the second one? </label><br />
+                <input name="ans" onclick="" type="radio" value="2" /> Yes <input name="ans" onclick="" type="radio" value="3" /> No</div>
+            &nbsp;
+
+            <div class="alert alert-warning">when providing a clarifying verb, it must be different (both lexically and semantically) from the original verb that was dropped from the second sentence.</div>
+            <label>Would you like to add a comment?</label>&nbsp;<br />
+            <textarea class="form-control" cols="85" id="comment" maxlength="250" name="comment" rows="1"></textarea></fieldset>
+    </section>
+    <!-- End Content Body</div> --></div>
+</section>
+<!-- close container -->
+<style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }
+</style>
+<script type="text/javascript">
+    storage_name = "seen-instructions-entailment_aspectual-flip";
+    it = localStorage.getItem(storage_name);
+    if (it) {
+        document.getElementById('collapse1').style.display = 'none';
+        document.getElementById('collapse2').style.display = 'none';
+    } else {
+        localStorage.setItem(storage_name, "True");
+        document.getElementById('collapse1').style.display = 'block';
+        document.getElementById('collapse2').style.display = 'block';
+    }
+
+    function show(ref) {
+        const element = document.getElementById(ref);
+        element.style.display = 'block';
+        element.focus();
+        // document.getElementById('other').focus();
+    }
+    function hide(ref) { document.getElementById(ref).style.display = 'none'; }
+    function cleanText(textID) {
+        document.getElementById(textID).value = ""
+    }
+    function cleanAndHide(elementID) {
+        hide(elementID);
+        cleanText(elementID);
+    }
+
+</script>
