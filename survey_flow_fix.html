@@ -44,30 +44,16 @@ p.yellow::-moz-selection { /* Code for Firefox */
 
             <div class="panel-body">
                 <div id="collapse1" style="display:inline">
-                    <p class="red-temp">In this task, you will use your knowledge about language (and common sense) to determine if the second sentence is true given that the first sentence is true.</p>
+                    <p class="red-temp">In this task, you will use your knowledge about language (and common sense) to determine what is the most suitable sentiment to describe the given text. </p>
                     <!--<p>&nbsp;</p>-->
 
                     <h4>Task Definition</h4>
 
                     <ul><!--	If the first sentence is true, Could the first sentence infer the second one--><!--	knowing the first sentence, do you know the second one is true-->
-                        <li>Carefully read the two given sentences</li>
-                        <li>The two sentences are identical apart from a verb that was dropped</li>
-                        <li>Given the first sentence is true, is the second sentence always true?<br />
-                            e.g. given that the following sentence is true:<br />
-                            &quot;She <span style="color: #1b9e77; ">started</span> the book she bought yesterday&quot;, also: &quot;She <span style="color: #1b9e77; ">started reading</span> the book she bought yesterday&quot; is true (and the answer is <b>Yes</b>).</li>
-                        <li>It won&#39;t always be the case, as the sentence meaning can change sometimes:<br />
-                            Given that the following is true &quot;They <span style="color: #1b9e77; ">started</span> the restaurant&quot;, the sentence: &quot;They <span style="color: #1b9e77; ">started reaching</span> the restaurant&quot; isn&#39;t true.<br />
-                            As in the first sentence some entities established or built a restaurant, whereas in the second sentence,<br />
-                            some entities are arriving to some restaurant. Therefore, the answer is <b>No</b><br />
-                            In case the answer is <b>No</b>, you will have to add a complement verb(s) to the <i>first</i> sentence that explains this answer. In this case, the verb &quot;created&quot; is a good candidate. See the examples for more details.</li>
-                        <li>In the cases where the answer to the question is No, a followup question will be asked<br />
-                            You will be shown two expressions, that comes from the original sentence. For example, in the case of the previous example &quot;started the restaurant&quot; and &quot;started reaching the restaurant&quot;. Can the first expression have the same meaning of the second one?<br />
-                            You will have to choose between <b>Yes</b> and <b>No</b>. In the case of this example, the answer would be <b>No</b>, as it has a completely different meaning.</li>
-                        <li>In other cases, the meaning of the second phrase can still be inferred from the first phrase. For example. given the following sentence is true&quot; &quot;He <span style="color: #1b9e77; ">continued</span> the meal&quot;, &quot;He <span style="color: #1b9e77; ">continued preparing</span> the meal&quot; is not always true. Therefore, the answer to the first quesiton is <b>No</b>. Then, the answer to the second question, would be <b>Yes</b>, as &quot;continued the meal&quot; can inferred as &quot;continued preparing the meal&quot;.<br />
-                            A good substitute for this verb is &quot;eating&quot;.</li>
-                        <li>Notice that substitute verbs would be presented right after the question to help think about alternative scenarios where the answer is not <b>Yes</b></li>
-                        <li>Notice that the sentences might contain space between words and punctuation marks. This is OK, treat them usually.</li>
-                        <li>When providing a clarifying verb (in the cases of &quot;Sometimes&quot; and &quot;No&quot;), the verb which is given in the second sentence, or another verb with a similar meaning, do not count as clarifying verbs.</li>
+                        <li>Carefully read the given text.</li>
+                        <li>The text is an email sent by employees and need to be addressed accordingly.</li>
+                        <li>Sometimes, some email headers might appear in the text, you may ignore them when evaluating the text.</li>
+                        <li>When you don't find any suitable option, you should choose the <i>'other'</i> option and write a sentiment to your choice, please make sure not to write more than 2 words to describe it.</li>
                     </ul>
 
                     <div class="alert alert-success">Make sure to read all the examples and their explanations to get a notion of the different cases</div>
@@ -77,7 +63,7 @@ p.yellow::-moz-selection { /* Code for Firefox */
         <!-- Examples -->
 
         <div class="panel panel-info">
-            <div class="panel-heading"><a href="javascript:;" onmousedown="if(document.getElementById('collapse2').style.display === 'none'){ document.getElementById('collapse2').style.display = 'block'; }else{ document.getElementById('collapse2').style.display = 'none'; }"><strong>Examples (click to collapse / expand)</strong> </a></div>
+            <div class="panel-heading"><a href="javascript:" onmousedown="if(document.getElementById('collapse2').style.display === 'none'){ document.getElementById('collapse2').style.display = 'block'; }else{ document.getElementById('collapse2').style.display = 'none'; }"><strong>Examples (click to collapse / expand)</strong> </a></div>
 
             <div class="panel-body">
                 <div class="container">
@@ -281,27 +267,146 @@ p.yellow::-moz-selection { /* Code for Firefox */
                 <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
                     <tbody>
                     <tr>
-                        <td><input name="ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" />  Negative Sentiment</td>
+                        <td><input name="ans" onclick="cleanAndHide('no'); cleanAndHide('is_avoidance'); show('neg_options') ; cleanAndHide('pos_options'); " type="radio" value="1" />  Negative Sentiment</td>
                     </tr>
                     <tr>
-                        <td><input name="ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" />  Positive Sentiment</td>
+                        <td><input name="ans" onclick="cleanAndHide('no');  cleanAndHide('is_avoidance');show('pos_options'); cleanAndHide('neg_options');" type="radio" value="1" />  Positive Sentiment</td>
                     </tr>
                     <tr>
-                        <td><input name="ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" />  Miscellaneous Sentiment</td>
+                        <td><input name="ans" onclick="cleanAndHide('no');show('is_avoidance'); cleanAndHide('neg_options');cleanAndHide('pos_options');" type="radio" value="1" />  Miscellaneous Sentiment</td>
                     </tr>
                     </tbody>
                 </table>
                 &nbsp;
-                <p>Verbs that could be interpreted for the first sentence:</p>
 
+                <div id="neg_options" style="display: none;">
+                    <label>Which of the following negative emotion describes best the text by the author?</label>
+
+                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                        <tbody>
+                        <tr>
+                            <td><input name="neg_ans" onclick="cleanAndHide('no');  cleanAndHide('sequent_section'); cleanAndHide('comment-other');" type="radio" value="1" /> Fear</td>
+                        </tr>
+                        <tr>
+                            <td><input name="neg_ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Anger</td>
+                        </tr>
+                        <tr>
+                            <td><input name="neg_ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Annoyance</td>
+                        </tr>
+                        <tr>
+                            <td><input name="neg_ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Disapproval</td>
+                        </tr>
+                        <tr>
+                            <td><input name="neg_ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Nervousness</td>
+                        </tr>
+                        <tr>
+                            <td><input name="neg_ans" onclick="cleanAndHide('no'); show('comment-other');" type="radio" value="1" />  Other
+                                <label for="comment-other"></label><textarea class="neg_ans" cols="20" id="comment-other" name="no" rows="1" style="display: none; margin-top: 5px"></textarea></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                &nbsp;
+                <div id="pos_options" style="display: none;">
+                    <label>Which of the following positive emotion describes best the text by the author?</label>
+
+                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                        <tbody>
+                        <tr>
+                            <td><input name="pos_ans" onclick="cleanAndHide('no');  cleanAndHide('sequent_section'); cleanAndHide('comment-pos-other');" type="radio" value="1" /> Admiration</td>
+                        </tr>
+                        <tr>
+                            <td><input name="pos_ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" />  Approval</td>
+                        </tr>
+                        <tr>
+                            <td><input name="pos_ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" />  Gratitude</td>
+                        </tr>
+                        <tr>
+                            <td><input name="pos_ans" onclick="cleanAndHide('no'); show('comment-pos-other');" type="radio" value="1" />  Other
+                                <label for="comment-other"></label><textarea class="neg_ans" cols="20" id="comment-pos-other" name="no" rows="1" style="display: none; margin-top: 5px"></textarea></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                &nbsp;
+
+                <div id="is_avoidance" style="display: none;">
+                    <label>Does the writer of the mail present a sentiment of Avoidance?</label>
+
+                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                        <tbody>
+                        <tr>
+                            <td><input name="avoidance_bool" onclick="cleanAndHide('no');  cleanAndHide('sequent_section'); cleanAndHide('is_obedience');" type="radio" value="1" /> Yes</td>
+                        </tr>
+                        <tr>
+                            <td><input name="avoidance_bool" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');show('is_obedience');" type="radio" value="1" />  No</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                &nbsp;
+                <div id="is_obedience" style="display: none;">
+                    <label>Does the writer of the mail present a sentiment of Obedience?</label>
+
+                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                        <tbody>
+                        <tr>
+                            <td><input name="obedience_bool" onclick="cleanAndHide('no');  cleanAndHide('sequent_section'); cleanAndHide('misc_options');" type="radio" value="1" /> Yes</td>
+                        </tr>
+                        <tr>
+                            <td><input name="obedience_bool" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');show('misc_options');" type="radio" value="1" />  No</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                &nbsp;
+
+
+                <div id="misc_options" style="display: none;">
+                    <label>Which of the following emotion describes best the text by the author?</label>
+
+                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                        <tbody>
+                        <tr>
+                            <td><input name="misc_ans" onclick="cleanAndHide('no');  cleanAndHide('sequent_section'); cleanAndHide('comment-pos-other');" type="radio" value="1" /> Curiosity</td>
+                        </tr>
+                        <tr>
+                            <td><input name="misc_ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" />  Realization</td>
+                        </tr>
+                        <tr>
+                            <td><input name="misc_ans" onclick="cleanAndHide('no');  cleanAndHide('sequent_section'); cleanAndHide('comment-pos-other');" type="radio" value="1" /> Surprise</td>
+                        </tr>
+                        <tr>
+                            <td><input name="misc_ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" />  Confusion</td>
+                        </tr>
+                        <tr>
+                            <td><input name="misc_ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" />  Neutral-<b>No Emotion</b></td>
+                        </tr>
+                        <tr>
+                            <td><input name="pos_ans" onclick="cleanAndHide('no'); show('comment-misc-other');" type="radio" value="1" />  Other
+                                <label for="comment-other"></label><textarea class="neg_ans" cols="20" id="comment-misc-other" name="no" rows="1" style="display: none; margin-top: 5px"></textarea></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                &nbsp;
+
+                <p>Towards who/or what the emotion (if exist) directed to? </p>
 
                 <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
                     <tbody>
+
                     <tr>
-                        <td><input name="ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" /> Yes</td>
+                        <td><input name="directed" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" /> No Specific Direction ("Im happy")</td>
                     </tr>
                     <tr>
-                        <td><input name="ans" onclick="show('no'); show('sequent_section')" type="radio" value="4" /> No - <strong>please add a clarifying verb(s)</strong><textarea class="form-control input-sm" cols="20" id="no" name="no" rows="1" style="display: none; margin-top: 5px"></textarea></td>
+                        <td><input name="directed" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" /> Organization ("This company sucks!)</td>
+                    </tr>
+                    <tr>
+                        <td><input name="directed" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" /> Specific Someone ("I think very highly of him!)</td>
+                    </tr>
+                    <tr>
+                        <td><input name="directed" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" />  A Group of people ("The IT department is super helpful!)</td>
                     </tr>
                     </tbody>
                 </table>
