@@ -449,25 +449,28 @@ p.yellow::-moz-selection { /* Code for Firefox */
         hide(elementID);
         cleanText(elementID);
     }
+
+
+
     //Randoized the order of the radio buttons, every function operate on a different class
     $(".cc-selector-main").html(
-        $(".cc-selector-main").children().sort(function() { // What I propose you
-            return (Math.random() - 0.5); // No need to use 'round()'
+        $(".cc-selector-main").children().sort(function() {
+            return (Math.random() - 0.5);
         })
     );
     $(".cc-selector-neg").html(
-        $(".cc-selector-neg").children().sort(function() { // What I propose you
-            return (Math.random() - 0.5); // No need to use 'round()'
+        $(".cc-selector-neg").children().sort(function() {
+            return (Math.random() - 0.5);
         })
     );
     $(".cc-selector-pos").html(
-        $(".cc-selector-pos").children().sort(function() { // What I propose you
-            return (Math.random() - 0.5); // No need to use 'round()'
+        $(".cc-selector-pos").children().sort(function() {
+            return (Math.random() - 0.5);
         })
     );
     $(".cc-selector-misc").html(
-        $(".cc-selector-misc").children().sort(function() { // What I propose you
-            return (Math.random() - 0.5); // No need to use 'round()'
+        $(".cc-selector-misc").children().sort(function() {
+            return (Math.random() - 0.5);
         })
     );
 
