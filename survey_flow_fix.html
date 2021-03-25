@@ -261,19 +261,16 @@ p.yellow::-moz-selection { /* Code for Firefox */
                 <br />
                 <label>What is the emotion presented in the text by the author?</label>
 
-
-                <label>What is the emotion presented in the text by the author?</label>
-
                 <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
                     <tbody>
                     <tr>
-                        <td><input name="ans" onclick=" cleanAndHide('is_avoidance'); show('neg_options') ; cleanAndHide('pos_options'); " type="radio" value="1" />  Negative Sentiment</td>
+                        <td><input name="ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('is_avoidance'); show('neg_options') ; cleanAndHide('pos_options'); " type="radio" value="1" />  Negative Sentiment</td>
                     </tr>
                     <tr>
-                        <td><input name="ans" onclick=" cleanAndHide('is_avoidance');show('pos_options'); cleanAndHide('neg_options');" type="radio" value="1" />  Positive Sentiment</td>
+                        <td><input name="ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('is_avoidance');show('pos_options'); cleanAndHide('neg_options');" type="radio" value="1" />  Positive Sentiment</td>
                     </tr>
                     <tr>
-                        <td><input name="ans" onclick=" show('is_avoidance'); cleanAndHide('neg_options');cleanAndHide('pos_options');" type="radio" value="1" />  Miscellaneous Sentiment</td>
+                        <td><input name="ans" onclick=" cleanAndHide('sequent_section');show('is_avoidance'); cleanAndHide('neg_options');cleanAndHide('pos_options');" type="radio" value="1" />  Miscellaneous Sentiment</td>
                     </tr>
                     </tbody>
                 </table>
@@ -285,19 +282,19 @@ p.yellow::-moz-selection { /* Code for Firefox */
                     <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
                         <tbody>
                         <tr>
-                            <td><input name="neg_ans" onclick=" cleanAndHide('sequent_section'); cleanAndHide('comment-other');" type="radio" value="1" /> Fear</td>
+                            <td><input name="neg_ans" onclick=" show('sequent_section'); cleanAndHide('comment-other');" type="radio" value="1" /> Fear</td>
                         </tr>
                         <tr>
-                            <td><input name="neg_ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Anger</td>
+                            <td><input name="neg_ans" onclick=" show('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Anger</td>
                         </tr>
                         <tr>
-                            <td><input name="neg_ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Annoyance</td>
+                            <td><input name="neg_ans" onclick=" show('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Annoyance</td>
                         </tr>
                         <tr>
-                            <td><input name="neg_ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Disapproval</td>
+                            <td><input name="neg_ans" onclick=" show('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Disapproval</td>
                         </tr>
                         <tr>
-                            <td><input name="neg_ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Nervousness</td>
+                            <td><input name="neg_ans" onclick=" show('sequent_section');cleanAndHide('comment-other');" type="radio" value="1" />  Nervousness</td>
                         </tr>
                         <tr>
                             <td><input name="neg_ans" onclick=" show('comment-other');" type="radio" value="1" />  Other
@@ -313,13 +310,13 @@ p.yellow::-moz-selection { /* Code for Firefox */
                     <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
                         <tbody>
                         <tr>
-                            <td><input name="pos_ans" onclick=" cleanAndHide('sequent_section'); cleanAndHide('comment-pos-other');" type="radio" value="1" /> Admiration</td>
+                            <td><input name="pos_ans" onclick=" cleanAndHide('sequent_section'); show('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" /> Admiration</td>
                         </tr>
                         <tr>
-                            <td><input name="pos_ans" onclick="cleanAndHide('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" />  Approval</td>
+                            <td><input name="pos_ans" onclick="cleanAndHide('sequent_section');show('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" />  Approval</td>
                         </tr>
                         <tr>
-                            <td><input name="pos_ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" />  Gratitude</td>
+                            <td><input name="pos_ans" onclick=" cleanAndHide('sequent_section');show('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" />  Gratitude</td>
                         </tr>
                         <tr>
                             <td><input name="pos_ans" onclick=" show('comment-pos-other');" type="radio" value="1" />  Other
@@ -336,59 +333,61 @@ p.yellow::-moz-selection { /* Code for Firefox */
                     <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
                         <tbody>
                         <tr>
-                            <td><input name="avoidance_bool" onclick="  cleanAndHide('sequent_section'); cleanAndHide('is_obedience');" type="radio" value="1" /> Yes</td>
+                            <td><input name="avoidance_bool" onclick="  show('sequent_section'); cleanAndHide('is_obedience');" type="radio" value="1" /> Yes</td>
                         </tr>
                         <tr>
                             <td><input name="avoidance_bool" onclick=" cleanAndHide('sequent_section');show('is_obedience');" type="radio" value="1" />  No</td>
                         </tr>
                         </tbody>
                     </table>
+                    <div id="is_obedience" style="display: none;">
+                        <label>Does the writer of the mail present a sentiment of Obedience?</label>
+
+                        <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                            <tbody>
+                            <tr>
+                                <td><input name="obedience_bool" onclick=" show('sequent_section'); cleanAndHide('misc_options');" type="radio" value="1" /> Yes</td>
+                            </tr>
+                            <tr>
+                                <td><input name="obedience_bool" onclick=" cleanAndHide('sequent_section');show('misc_options');" type="radio" value="1" />  No</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div id="misc_options" style="display: none;">
+                            <label>Which of the following emotion describes best the text by the author?</label>
+
+                            <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                <tbody>
+                                <tr>
+                                    <td><input name="misc_ans" onclick=" show('sequent_section'); cleanAndHide('comment-misc-other');" type="radio" value="1" /> Curiosity</td>
+                                </tr>
+                                <tr>
+                                    <td><input name="misc_ans" onclick=" show('sequent_section');cleanAndHide('comment-misc-other');" type="radio" value="1" />  Realization</td>
+                                </tr>
+                                <tr>
+                                    <td><input name="misc_ans" onclick="  show('sequent_section');cleanAndHide('comment-misc-other');" type="radio" value="1" /> Surprise</td>
+                                </tr>
+                                <tr>
+                                    <td><input name="misc_ans" onclick=" show('sequent_section');cleanAndHide('comment-misc-other');" type="radio" value="1" />  Confusion</td>
+                                </tr>
+                                <tr>
+                                    <td><input name="misc_ans" onclick=" show('sequent_section');cleanAndHide('comment-misc-other');" type="radio" value="1" />  Neutral-<b>No Emotion</b></td>
+                                </tr>
+                                <tr>
+                                    <td><input name="misc_ans" onclick=" show('sequent_section');show('comment-misc-other');" type="radio" value="1" />  Other
+                                        <label for="comment-other"></label><textarea class="neg_ans" cols="20" id="comment-misc-other" name="no" rows="1" style="display: none; margin-top: 5px"></textarea></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    &nbsp;
                 </div>
                 &nbsp;
-                <div id="is_obedience" style="display: none;">
-                    <label>Does the writer of the mail present a sentiment of Obedience?</label>
-
-                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
-                        <tbody>
-                        <tr>
-                            <td><input name="obedience_bool" onclick=" cleanAndHide('sequent_section'); cleanAndHide('misc_options');" type="radio" value="1" /> Yes</td>
-                        </tr>
-                        <tr>
-                            <td><input name="obedience_bool" onclick=" cleanAndHide('sequent_section');show('misc_options');" type="radio" value="1" />  No</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                &nbsp;
 
 
-                <div id="misc_options" style="display: none;">
-                    <label>Which of the following emotion describes best the text by the author?</label>
 
-                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
-                        <tbody>
-                        <tr>
-                            <td><input name="misc_ans" onclick="  cleanAndHide('sequent_section'); cleanAndHide('comment-misc-other');" type="radio" value="1" /> Curiosity</td>
-                        </tr>
-                        <tr>
-                            <td><input name="misc_ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('comment-misc-other');" type="radio" value="1" />  Realization</td>
-                        </tr>
-                        <tr>
-                            <td><input name="misc_ans" onclick="  cleanAndHide('sequent_section'); cleanAndHide('comment-misc-other');" type="radio" value="1" /> Surprise</td>
-                        </tr>
-                        <tr>
-                            <td><input name="misc_ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('comment-misc-other');" type="radio" value="1" />  Confusion</td>
-                        </tr>
-                        <tr>
-                            <td><input name="misc_ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('comment-misc-other');" type="radio" value="1" />  Neutral-<b>No Emotion</b></td>
-                        </tr>
-                        <tr>
-                            <td><input name="pos_ans" onclick=" show('comment-misc-other');" type="radio" value="1" />  Other
-                                <label for="comment-other"></label><textarea class="neg_ans" cols="20" id="comment-misc-other" name="no" rows="1" style="display: none; margin-top: 5px"></textarea></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
                 &nbsp;
                 <div id="sequent_section" style="display: none;">
 
@@ -398,23 +397,24 @@ p.yellow::-moz-selection { /* Code for Firefox */
                     <tbody>
 
                     <tr>
-                        <td><input name="directed" onclick=" cleanAndHide('sequent_section');" type="radio" value="1" /> No Specific Direction ("Im happy")</td>
+                        <td><input name="directed" type="radio" value="1" /> No Specific Direction ("Im happy")</td>
                     </tr>
                     <tr>
-                        <td><input name="directed" onclick=" cleanAndHide('sequent_section');" type="radio" value="1" /> Organization ("This company sucks!)</td>
+                        <td><input name="directed"  type="radio" value="1" /> Organization ("This company sucks!)</td>
                     </tr>
                     <tr>
-                        <td><input name="directed" onclick=" cleanAndHide('sequent_section');" type="radio" value="1" /> Specific Someone ("I think very highly of him!)</td>
+                        <td><input name="directed"  type="radio" value="1" /> Specific Someone ("I think very highly of him!)</td>
                     </tr>
                     <tr>
-                        <td><input name="directed" onclick=" cleanAndHide('sequent_section');" type="radio" value="1" />  A Group of people ("The IT department is super helpful!)</td>
+                        <td><input name="directed"  type="radio" value="1" />  A Group of people ("The IT department is super helpful!)</td>
                     </tr>
                     </tbody>
                 </table>
                 &nbsp;</div>
 
                 &nbsp;
-
+                <br />
+                <br />
                 <label>Would you like to add a comment?</label>&nbsp;<br />
                 <textarea class="form-control" cols="85" id="comment" maxlength="250" name="comment" rows="1"></textarea></fieldset>
         </section>
