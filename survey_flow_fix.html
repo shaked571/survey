@@ -91,7 +91,69 @@ p.yellow::-moz-selection { /* Code for Firefox */
 
                             <div class="tab-content">
                                 <div class="tab-pane fade in active" id="example1">&nbsp;
-                                    <p id="text_example1a" style="font-weight:normal;">Text: Hey, Thanks for your mail. Regards, John </p>
+                                    <p id="text_example1a" style="font-weight:normal;"><b>Text:</b><br> Hey,<br> Thanks for your mail. <br>Regards,<br> John </p>
+
+                                    <label>What is the emotion presented in the text by the author?</label>
+
+                                    <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example1_general_emotion" type="radio" value="1" /> Negative Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example1_general_emotion" type="radio" value="1" /> Positive Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input checked="checked" disabled="disabled" name="example1_general_emotion" type="radio" value="2" /> Miscellaneous Sentiment</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    &nbsp;
+                                    <label>Does the writer of the mail present a sentiment of Avoidance?</label> <br>
+                                    <label>
+                                        <input  disabled="disabled" name="example1_av" onclick="" type="radio" value="2" />
+                                    </label> Yes
+                                    <label>
+                                        <input checked="checked" disabled="disabled" name="example1_av" onclick="" type="radio" value="3" />
+                                    </label> No
+                                    &nbsp;<br>
+                                    <label>Does the writer of the mail present a sentiment of Obedience? </label>
+                                    <br>
+                                    <label>
+                                        <input disabled="disabled" name="example1_o" onclick="" type="radio" value="2" />
+                                    </label> Yes
+                                        <input disabled="disabled" checked="checked"  name="example1_o" onclick="" type="radio" value="3" /> No
+                                    &nbsp;<br>
+                                    <label>what Emotion describe the text best? </label><br>
+                                    <label>
+                                        <input  disabled="disabled" name="example1_misc_emotion" onclick="" type="radio" value="2" />
+                                    </label> curiosity
+                                    <label>
+                                        <input  disabled="disabled" name="example1_misc_emotion" onclick="" type="radio" value="2" />
+                                    </label> realization
+                                    <label>
+                                        <input  disabled="disabled" name="example1_misc_emotion" onclick="" type="radio" value="2" />
+                                    </label> surprise
+                                    <label>
+                                        <input  disabled="disabled" name="example1_misc_emotion" onclick="" type="radio" value="2" />
+                                    </label> confusion
+                                    <label>
+                                        <input  disabled="disabled" checked="checked" name="example1_misc_emotion" onclick="" type="radio" value="2" />
+                                    </label> neutral
+                                    <label>                            &nbsp;
+
+                                        <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                                    </label> other
+                                    <br>
+
+                                    &nbsp;
+
+                                    <div class="example1">In the text, although John used the term <b>'Thanks'</b> it doesn't signify a real gratitude buy more a manner of courtesy.<br />
+                                        Therefore, when encountering this kind of texts we would wish to mark them as neutral. </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="example2">&nbsp;
+                                    <p id="text_example2" style="font-weight:normal;">Text: Hey, Thanks for your mail. Regards, John </p>
 
                                     <label>What is the emotion presented in the text by the author?</label>
 
@@ -110,139 +172,95 @@ p.yellow::-moz-selection { /* Code for Firefox */
                                     </table>
                                     &nbsp;
                                     <label>Does the writer of the mail present a sentiment of Avoidance?</label> <br>
-                                    <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" /> Yes <input checked="checked" disabled="disabled" name="example1" onclick="" type="radio" value="3" /> No
+                                    <input  disabled="disabled" name="example2" onclick="" type="radio" value="2" /> Yes <input checked="checked" disabled="disabled" name="example1" onclick="" type="radio" value="3" /> No
                                     &nbsp;<br>
                                     <label>Does the writer of the mail present a sentiment of Obedience? </label>
                                     <br>
-                                    <input disabled="disabled" name="example1" onclick="" type="radio" value="2" /> Yes
-                                    <input disabled="disabled" checked="checked"  name="example1" onclick="" type="radio" value="3" /> No
+                                    <input disabled="disabled" name="example2" onclick="" type="radio" value="2" /> Yes
+                                    <input disabled="disabled" checked="checked"  name="example2" onclick="" type="radio" value="3" /> No
                                     &nbsp;<br>
                                     <label>what Emotion describe the text best? </label><br>
                                     <label>
-                                        <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                                        <input  disabled="disabled" name="example2" onclick="" type="radio" value="2" />
                                     </label> curiosity
                                     <label>
-                                        <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                                        <input  disabled="disabled" name="example2" onclick="" type="radio" value="2" />
                                     </label> realization
                                     <label>
-                                        <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                                        <input  disabled="disabled" name="example2" onclick="" type="radio" value="2" />
                                     </label> surprise
                                     <label>
-                                        <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                                        <input  disabled="disabled" name="example2" onclick="" type="radio" value="2" />
                                     </label> confusion
                                     <label>
-                                        <input  disabled="disabled" checked="checked" name="example1" onclick="" type="radio" value="2" />
+                                        <input  disabled="disabled" checked="checked" name="example2" onclick="" type="radio" value="2" />
                                     </label> neutral
                                     <label>                            &nbsp;
 
-                                        <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
+                                        <input  disabled="disabled" name="example2" onclick="" type="radio" value="2" />
                                     </label> other
                                     <br>
 
                                     &nbsp;
 
-                                    <div class="example1">In the text, although John used the term <b>'Thanks'</b> it doesn't signify a real gratitude buy more a manner of courtesy.<br />
+                                    <div class="example2">In the text, although John used the term <b>'Thanks'</b> it doesn't signify a real gratitude buy more a manner of courtesy.<br />
                                         Therefore, when encountering this kind of texts we would wish to mark them as neutral. </div>
-                                </div>
-
-                                <div class="tab-pane fade" id="example2">&nbsp;
-                                    <p id="text_example2a" style="font-weight:normal;">Sentence 1: &quot;Ajax <mark>started</mark> some moves, and soon, they were all grappling and tossing each other around.&quot;</p>
-
-                                    <p id="text_example2b" style="font-weight:normal;">Sentence 2: &quot;Ajax <mark>started demonstrating</mark> some moves, and soon, they were all grappling and tossing each other around.&quot;</p>
-                                    <label>Given the first sentence is true, is the second sentence also true?</label>
-
-                                    <p>Verbs that could be interpreted for the first sentence:</p>
-
-                                    <table cellpadding="5" style="font-family: Verdana, Geneva, sans-serif; font-size:1em; font-style: italic">
-                                        <tbody>
-                                        <tr>
-                                            <td>making</td>
-                                            <td>practicing</td>
-                                            <td>trying</td>
-                                            <td>throwing</td>
-                                            <td>planning</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    &nbsp;
-
-                                    <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
-                                        <tbody>
-                                        <tr>
-                                            <td><input disabled="disabled" name="example2" type="radio" value="1" /> Yes</td>
-                                        </tr>
-                                        <tr><!--			<td><input checked="checked" disabled="disabled" name="example2" type="radio" value="2" /> Sometimes</td>-->
-                                            <td><input disabled="disabled" name="example2" type="radio" value="2" /> No - <strong>please add a clarifying verb(s)</strong><textarea class="form-control input-sm" cols="20" disabled="disabled" id="example2-sometimes" name="example2-sometimes" rows="1" style="margin-top: 5px">started trying</textarea></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    &nbsp;
-
-                                    <div id="example2-sequent_section">
-                                        <p>Expression 1: started some moves</p>
-
-                                        <p>Expression 2: started demonstrating some moves</p>
-                                        <label>Can the first expression have the same meaning of the second one? </label><br />
-                                        <input checked="checked" disabled="disabled" name="example2" onclick="" type="radio" value="2" /> Yes <input disabled="disabled" name="example2" onclick="" type="radio" value="3" /> No</div>
-                                    &nbsp;
-
-                                    <p>In this example, the second sentence can mean the same as the first sentence, but it is ambiguous and does not necessarily mean the same,<br />
-                                        as it can also have the meaning of <b>simply performing</b> some moves.<br />
-                                        Therefore, knowing the first sentence, doesn&#39;t necessarily make the second true, and that&#39;s why the answer is <b>No</b>.<br />
-                                        Then, after selecting &quot;No&quot;, a second question is asked.<br />
-                                        In this case, as the first expression can lead to the second to be true, the answer to the second question would be &quot;Yes&quot;. <!--	Add the marked verb from the second sentence for making the sentence grammatical (in this case we added the verb 'started' along with 'performing')<br/>--> <!--	Notice that the clarifying verb is performing, which have a different meaning from demonstrating. The verb "showing" is different, <br/>--> <!--	but is not considered as a valid answer for this example, as it doesn't provide the different meaning on how the first sentence can be read.--></p>
-                                </div>
+                                </div>&nbsp;
 
                                 <div class="tab-pane fade" id="example3">&nbsp;
-                                    <p id="text_example3a" style="font-weight:normal;">Sentence 1: &quot;They jumped onto the pier and <mark>started</mark> the boat.&quot;</p>
+                                    <p id="text_example3" style="font-weight:normal;">Text: Hey, Thanks for your mail. Regards, John </p>
 
-                                    <p id="text_example3b" style="font-weight:normal;">Sentence 2: &quot;They jumped onto the pier and <mark>started untying</mark> the boat.&quot;</p>
-                                    <label>Given the first sentence is true, is the second sentence also true?</label>
-
-                                    <p>Verbs that could be interpreted for the first sentence:</p>
-
-                                    <table cellpadding="5" style="font-family: Verdana, Geneva, sans-serif; font-size:1em; font-style: italic">
-                                        <tbody>
-                                        <tr>
-                                            <td>boarding</td>
-                                            <td>rocking</td>
-                                            <td>circling</td>
-                                            <td>climbing</td>
-                                            <td>watching</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                    &nbsp;
+                                    <label>What is the emotion presented in the text by the author?</label>
 
                                     <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
                                         <tbody>
                                         <tr>
-                                            <td><input disabled="disabled" name="example3" type="radio" value="1" /> Yes</td>
+                                            <td><input  disabled="disabled" name="example1" type="radio" value="1" /> Negative Sentiment</td>
                                         </tr>
                                         <tr>
-                                            <td><input disabled="disabled" name="example3" type="radio" value="3" /> No - <strong>please add a clarifying verb(s)</strong><textarea class="form-control input-sm" cols="20" disabled="disabled" id="example3-no" name="example3-no" rows="1" style="margin-top: 5px">activated</textarea></td>
+                                            <td><input  disabled="disabled" name="example1" type="radio" value="1" /> Positive Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input checked="checked" disabled="disabled" name="example1" type="radio" value="2" /> Miscellaneous Sentiment</td>
                                         </tr>
                                         </tbody>
                                     </table>
                                     &nbsp;
+                                    <label>Does the writer of the mail present a sentiment of Avoidance?</label> <br>
+                                    <input  disabled="disabled" name="example3" onclick="" type="radio" value="2" /> Yes <input checked="checked" disabled="disabled" name="example1" onclick="" type="radio" value="3" /> No
+                                    &nbsp;<br>
+                                    <label>Does the writer of the mail present a sentiment of Obedience? </label>
+                                    <br>
+                                    <input disabled="disabled" name="example3" onclick="" type="radio" value="2" /> Yes
+                                    <input disabled="disabled" checked="checked"  name="example3" onclick="" type="radio" value="3" /> No
+                                    &nbsp;<br>
+                                    <label>what Emotion describe the text best? </label><br>
+                                    <label>
+                                        <input  disabled="disabled" name="example3" onclick="" type="radio" value="2" />
+                                    </label> curiosity
+                                    <label>
+                                        <input  disabled="disabled" name="example3" onclick="" type="radio" value="2" />
+                                    </label> realization
+                                    <label>
+                                        <input  disabled="disabled" name="example3" onclick="" type="radio" value="2" />
+                                    </label> surprise
+                                    <label>
+                                        <input  disabled="disabled" name="example3" onclick="" type="radio" value="2" />
+                                    </label> confusion
+                                    <label>
+                                        <input  disabled="disabled" checked="checked" name="example3" onclick="" type="radio" value="2" />
+                                    </label> neutral
+                                    <label>                            &nbsp;
 
-                                    <div id="example3-sequent_section">
-                                        <p>Expression 1: started the boat</p>
+                                        <input  disabled="disabled" name="example3" onclick="" type="radio" value="2" />
+                                    </label> other
+                                    <br>
 
-                                        <p>Expression 2: started untying the boat</p>
-                                        <label>Can the first expression have the same meaning of the second one? </label><br />
-                                        <input disabled="disabled" name="example3" onclick="" type="radio" value="2" /> Yes <input checked="checked" disabled="disabled" name="example3" onclick="" type="radio" value="3" /> No</div>
                                     &nbsp;
 
-                                    <p>In this example, the first sentence is about turning on (igniting) a boat, whereas the second sentence,<br />
-                                        talks about untying a boat.<br />
-                                        Therefore, By knowing the first sentence is true, the second isn&#39;t and the answer is <b>No</b>.<br />
-                                        If the clarifying verb replaces the first verb, do not include it in the answer (in this case we only added &#39;activated&#39;)<br />
-                                        Notice the clarifying verb is &quot;activated&quot;, as it provides a different meaning than &quot;untying&quot;.<br />
-                                        Similarly to the previous example, verbs like &quot;untying&quot;, &quot;unleashing&quot; which have the same or similar meaning as the presented verb,<br />
-                                        are not acceptable answer. The clarifying verb should be with a different meaning of the given one,<br />
-                                        such as &quot;activated&quot; (the given one here), &quot;using&quot; or &quot;operating&quot; are good completions.</p>
-                                </div>
+                                    <div class="example3">In the text, although John used the term <b>'Thanks'</b> it doesn't signify a real gratitude buy more a manner of courtesy.<br />
+                                        Therefore, when encountering this kind of texts we would wish to mark them as neutral. </div>
+                                </div>&nbsp;
                                 <!--  --><!--  --></div>
                         </div>
                     </div>
@@ -253,26 +271,29 @@ p.yellow::-moz-selection { /* Code for Firefox */
 
         <section>
             <fieldset>
-                <p class="yellow" id="text_a" style="font-weight:normal;">Sentence 1: ${xcompless_text_html}</p>
-
-                <p class="yellow" id="text_b" style="font-weight:normal;">Sentence 2: ${origin_text_html}</p>
+                <p class="yellow" id="text_b" style="font-weight:normal;"><b>Text</b>: ${text}</p>
                 <br />
-                <label>Given the first sentence is true, is the second sentence always true?</label>
+                <label>What is the emotion presented in the text by the author?</label>
 
-                <p>Verbs that could be interpreted for the first sentence:</p>
 
-                <table cellpadding="5" style="font-family: Verdana, Geneva, sans-serif; font-size:1em; font-style: italic">
+                <label>What is the emotion presented in the text by the author?</label>
+
+                <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
                     <tbody>
                     <tr>
-                        <td>${v1}</td>
-                        <td>${v2}</td>
-                        <td>${v3}</td>
-                        <td>${v4}</td>
-                        <td>${v5}</td>
+                        <td><input name="ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" />  Negative Sentiment</td>
+                    </tr>
+                    <tr>
+                        <td><input name="ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" />  Positive Sentiment</td>
+                    </tr>
+                    <tr>
+                        <td><input name="ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" />  Miscellaneous Sentiment</td>
                     </tr>
                     </tbody>
                 </table>
                 &nbsp;
+                <p>Verbs that could be interpreted for the first sentence:</p>
+
 
                 <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
                     <tbody>
