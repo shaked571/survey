@@ -261,8 +261,8 @@ p.yellow::-moz-selection { /* Code for Firefox */
                 <br />
                 <label>What is the emotion presented in the text by the author?</label>
 
-                <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
-                    <tbody>
+                <table  style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                    <tbody class="cc-selector-main">
                     <tr>
                         <td><input name="ans" onclick=" cleanAndHide('sequent_section');cleanAndHide('is_avoidance'); show('neg_options') ; cleanAndHide('pos_options'); " type="radio" value="1" />  Negative Sentiment</td>
                     </tr>
@@ -280,7 +280,7 @@ p.yellow::-moz-selection { /* Code for Firefox */
                     <label>Which of the following negative emotion describes best the text by the author?</label>
 
                     <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
-                        <tbody>
+                        <tbody class="cc-selector-neg">
                         <tr>
                             <td><input name="neg_ans" onclick=" show('sequent_section'); cleanAndHide('comment-other');" type="radio" value="1" /> Fear</td>
                         </tr>
@@ -308,7 +308,7 @@ p.yellow::-moz-selection { /* Code for Firefox */
                     <label>Which of the following positive emotion describes best the text by the author?</label>
 
                     <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
-                        <tbody>
+                        <tbody class="cc-selector-pos">
                         <tr>
                             <td><input name="pos_ans" onclick=" cleanAndHide('sequent_section'); show('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="1" /> Admiration</td>
                         </tr>
@@ -357,7 +357,7 @@ p.yellow::-moz-selection { /* Code for Firefox */
                             <label>Which of the following emotion describes best the text by the author?</label>
 
                             <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
-                                <tbody>
+                                <tbody class="cc-selector-misc">
                                 <tr>
                                     <td><input name="misc_ans" onclick=" show('sequent_section'); cleanAndHide('comment-misc-other');" type="radio" value="1" /> Curiosity</td>
                                 </tr>
@@ -449,5 +449,28 @@ p.yellow::-moz-selection { /* Code for Firefox */
         hide(elementID);
         cleanText(elementID);
     }
+    //Randoized the order of the radio buttons, every function operate on a different class
+    $(".cc-selector-main").html(
+        $(".cc-selector-main").children().sort(function() { // What I propose you
+            return (Math.random() - 0.5); // No need to use 'round()'
+        })
+    );
+    $(".cc-selector-neg").html(
+        $(".cc-selector-neg").children().sort(function() { // What I propose you
+            return (Math.random() - 0.5); // No need to use 'round()'
+        })
+    );
+    $(".cc-selector-pos").html(
+        $(".cc-selector-pos").children().sort(function() { // What I propose you
+            return (Math.random() - 0.5); // No need to use 'round()'
+        })
+    );
+    $(".cc-selector-misc").html(
+        $(".cc-selector-misc").children().sort(function() { // What I propose you
+            return (Math.random() - 0.5); // No need to use 'round()'
+        })
+    );
+
+
 
 </script>
