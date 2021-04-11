@@ -1,4 +1,8 @@
-<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.css" media="screen" rel="stylesheet" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.css" media="screen" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
 <style type="text/css">p.yellow::selection {
     color: black;
     background: yellow;
@@ -6,37 +10,9 @@
 p.yellow::-moz-selection { /* Code for Firefox */
     color: black;
     background: yellow;
-}T
+}
 </style>
-<script type="text/javascript">
-    window.onload = function() {document.getElementById('submitButton').setAttribute('onclick', 'return validateForm()'); };
 
-    function validateForm() {
-        var radios = document.getElementsByName('ans');
-        for (var i = 0, length = radios.length; i < length; i++) {
-            if (radios[i].checked) {
-                if (i === 4) {
-                    // const sometimes = document.getElementById('sometimes');
-                    // if (sometimes.value === '') {
-                    alert("you have to answer the followup question");
-                    return false
-                    // }
-                }
-                if (i === 2 || i === 3) {
-                    const no = document.getElementById('no');
-                    if (no.value === '') {
-                        alert("you have to write a verb when choosing this answer");
-                        return false
-                    }
-                }
-                return true;
-            }
-        }
-        alert("you have to choose one of the options");
-        return false;
-    }
-
-</script>
 <section class="container" id="instructions" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;">
     <div class="row col-xs-10 col-md-10" style="margin:auto"><!-- Instructions -->
         <div class="panel panel-primary">
@@ -44,16 +20,17 @@ p.yellow::-moz-selection { /* Code for Firefox */
 
             <div class="panel-body">
                 <div id="collapse1" style="display:inline">
-                    <p class="red-temp">In this task, you will use your knowledge about language (and common sense) to determine which sentiment is presented by the author of the text.</p>
+                    <p class="red-temp">In this task, you will use your knowledge about language (and common sense) to determine what is the most suitable sentiment to describe the given text. </p>
                     <!--<p>&nbsp;</p>-->
 
                     <h4>Task Definition</h4>
 
-                    <ul><!--	If the first sentence is true, Could the first sentence infer the second one--><!--	knowing the first sentence, do you know the second one is true-->
-                        <li>Carefully read the text.</li>
-                        <li>The text is taken from a mail and need to be addressed in this context (a formal and implicit one).</li>
-                        <li>Please addressed formal gestures in the text e.g. ending a mail with <b>'Thanks'</b> or <b>'Best regards'</b> as a neutral tone.</li>
-                        <li>Sometimes you will see mail headers in the text,<b> please ignore those headers</b>. <br />
+                    <ul><!--	I the first sentence is true, Could the first sentence infer the second one--><!--	knowing the first sentence, do you know the second one is true-->
+                        <li>Carefully read the given text.</li>
+                        <li>The text is an email sent by employees and need to be addressed accordingly. Hence, need to be addressed from the perspective of someone sho is working in a company and </li>
+                        <li>mailing to his peers/employees/managers. The language in these mails attend to be more settled, professional and implicit. </li>
+                        <li>Please ignore email headers in case they appear in the text.</li>
+                        <li>When you don't find any suitable option, you should choose the <i>'other'</i> option and write a sentiment to your choice, please make sure not to write more than 2 words to describe it.</li>
                     </ul>
 
                     <div class="alert alert-success">Make sure to read all the examples and their explanations to get a notion of the different cases</div>
@@ -63,7 +40,7 @@ p.yellow::-moz-selection { /* Code for Firefox */
         <!-- Examples -->
 
         <div class="panel panel-info">
-            <div class="panel-heading"><a href="javascript:;" onmousedown="if(document.getElementById('collapse2').style.display === 'none'){ document.getElementById('collapse2').style.display = 'block'; }else{ document.getElementById('collapse2').style.display = 'none'; }"><strong>Examples (click to collapse / expand)</strong> </a></div>
+            <div class="panel-heading"><a href="javascript:" onmousedown="if(document.getElementById('collapse2').style.display === 'none'){ document.getElementById('collapse2').style.display = 'block'; }else{ document.getElementById('collapse2').style.display = 'none'; }"><strong>Examples (click to collapse / expand)</strong> </a></div>
 
             <div class="panel-body">
                 <div class="container">
@@ -73,219 +50,545 @@ p.yellow::-moz-selection { /* Code for Firefox */
                                 <li class="active"><a data-toggle="tab" href="#example1">Example 1</a></li>
                                 <li><a data-toggle="tab" href="#example2">Example 2</a></li>
                                 <li><a data-toggle="tab" href="#example3">Example 3</a></li>
+                                <li><a data-toggle="tab" href="#example4">Example 4</a></li>
+                                <li><a data-toggle="tab" href="#example5">Example 5</a></li>
+                                <li><a data-toggle="tab" href="#example6">Example 6</a></li>
+                                <li><a data-toggle="tab" href="#example7">Example 7</a></li>
+                                <li><a data-toggle="tab" href="#example8">Example 8</a></li>
                             </ul>
 
                             <div class="tab-content">
                                 <div class="tab-pane fade in active" id="example1">&nbsp;
-                                    <p id="text_example1a" style="font-weight:normal;">Text: Hey, Thanks for your mail. Regards, John </p>
+                                    <p id="text_example1a" style="font-weight:normal;"><b>Text:</b><br> Hey,<br> Thanks for your mail. <br>Regards,<br> John </p>
 
                                     <label>What is the emotion presented in the text by the author?</label>
 
                                     <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
                                         <tbody>
                                         <tr>
-                                            <td><input  disabled="disabled" name="example1" type="radio" value="1" /> Negative Sentiment</td>
+                                            <td><input  disabled="disabled" name="example1_general_emotion" type="radio" value="1" /> Negative Sentiment</td>
                                         </tr>
                                         <tr>
-                                            <td><input  disabled="disabled" name="example1" type="radio" value="1" /> Positive Sentiment</td>
+                                            <td><input  disabled="disabled" name="example1_general_emotion" type="radio" value="1" /> Positive Sentiment</td>
                                         </tr>
                                         <tr>
-                                            <td><input checked="checked" disabled="disabled" name="example1" type="radio" value="2" /> Miscellaneous Sentiment</td>
+                                            <td><input checked="checked" disabled="disabled" name="example1_general_emotion" type="radio" value="2" /> Miscellaneous Sentiment</td>
                                         </tr>
                                         </tbody>
                                     </table>
+                                    &nbsp;<br>
+                                    <label>Does the email author present <b>avoidance </b>sentiment?</label> <br>
+                                    <label>
+                                        <input  disabled="disabled" name="example1_av" onclick="" type="radio" value="2" />
+                                    </label> Yes
+                                    <label>
+                                        <input checked="checked" disabled="disabled" name="example1_av" onclick="" type="radio" value="3" />
+                                    </label> No
+                                    &nbsp;<br>
+                                    <label>Does the email author present <b>obedience</b> sentiment?</label>
+                                    <br>
+                                    <label>
+                                        <input disabled="disabled" name="example1_o" onclick="" type="radio" value="2" />
+                                    </label> Yes
+                                    <input disabled="disabled" checked="checked"  name="example1_o" onclick="" type="radio" value="3" /> No
+                                    &nbsp;<br>
+                                    <label>Which of the following emotion describes best the text by the author?</label>
+                                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">s
+                                        <tbody>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example1_misc" onclick="" type="radio" value="watchfulness" />  Watchfulness</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input   disabled="disabled" name="example1_misc" onclick="" type="radio" value="Curiosity" />  Curiosity/Interest</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  checked="checked" disabled="disabled" name="example1_misc" onclick="" type="radio" value="Neutral-No Emotion" />  Neutral-<b>No Emotion</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example1_misc" onclick="" type="radio" value="other" />  Other
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
                                     &nbsp;
-                                    <label>Does the writer of the mail present a sentiment of Avoidance?</label><br />
-                                    <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" /> Yes <input checked="checked" disabled="disabled" name="example1" onclick="" type="radio" value="3" /> No
-                                &nbsp;
-                                <label>Does the writer of the mail present a sentiment of Obedience? </label><br />
-                                <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" /> Yes <input checked="checked" disabled="disabled" name="example1" onclick="" type="radio" value="3" /> No
-                            &nbsp;
-                            <label>what Emotion describe the text best? </label><br />
-                            <label>
-                                <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
-                            </label> curiosity
-                            <label>
-                                <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
-                            </label> realization
-                            <label>
-                                <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
-                            </label> surprise
-                            <label>
-                                <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
-                            </label> confusion
-                            <label>
-                                <input  disabled="disabled" checked="checked" name="example1" onclick="" type="radio" value="2" />
-                            </label> neutral
-                        <label>                            &nbsp;
 
-                            <input  disabled="disabled" name="example1" onclick="" type="radio" value="2" />
-                        </label> other
-                            <br>
+                                    <div class="example1">In the text, although John used the term <b>'Thanks'</b> it doesn't signify a real gratitude buy more a manner of courtesy.<br />
+                                        Therefore, when encountering this kind of texts we would wish to mark them as neutral. </div>
+                                </div>
 
-                            &nbsp;
+                                <div class="tab-pane fade" id="example2">&nbsp;
+                                    <p id="text_example2" style="font-weight:normal;"><b>Text:</b><br> Hey Dan<br> I got your mail.<br>I will finish everything ASAP <br> Regards, John </p>
 
-                        <div class="example1">In the text, although John used the term <b>'Thanks'</b> it doesn't signify a real gratitude buy more a manner of courtesy.<br />
-                            Therefore, when encountering this kind of texts we would wish to mark them as neutral. </div>
-                                     </div>
+                                    <label>What is the emotion presented in the text by the author?</label>
 
+                                    <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example2_general_emotion" type="radio" value="1" /> Negative Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example2_general_emotion" type="radio" value="1" /> Positive Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input checked="checked" disabled="disabled"  name="example2_general_emotion" type="radio" value="2" /> Miscellaneous Sentiment</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    &nbsp;<br>
+                                    <label>Does the email author present <b>avoidance </b>sentiment?</label> <br>
+                                    <input  disabled="disabled" name="example2_a" onclick="" type="radio" value="2" /> Yes
+                                    <input checked="checked" disabled="disabled" name="example2_a" onclick="" type="radio" value="3" /> No
+                                    &nbsp;<br>
+                                    <label>Does the email author present <b>obedience</b> sentiment?</label>
+                                    <br>
+                                    <input disabled="disabled"  checked="checked"  name="example2_o" onclick="" type="radio" value="2" /> Yes
+                                    <input disabled="disabled" name="example2_o" onclick="" type="radio" value="3" /> No
+                                    <br>
+                                    &nbsp;
+                                    <p><b>Towards who/or what the emotion (if exist) directed to?</b> </p>
 
-                    <div class="tab-pane fade" id="example2">&nbsp;
-                        <p id="text_example2a" style="font-weight:normal;">Sentence 1: "Ajax <mark>started</mark> some moves, and soon, they were all grappling and tossing each other around."</p>
+                                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
 
-                        <p id="text_example2b" style="font-weight:normal;">Sentence 2: "Ajax <mark>started demonstrating</mark> some moves, and soon, they were all grappling and tossing each other around."</p>
-                        <label>Given the first sentence is true, is the second sentence also true?</label>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed" type="radio" value="no direction" /> No Specific Direction ("Im happy")</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed"  type="radio" value="org" /> Organization ("This company sucks!)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed" checked="checked"  type="radio" value="someone" /> Specific Someone ("I think very highly of him!)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed"  type="radio" value="group" />  A Group of people ("The IT department is super helpful!)</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>&nbsp;
 
-                        <p>Verbs that could be interpreted for the first sentence:</p>
+                                    <div class="example2">In this example, John didn't question Dan request and demonstrated obedience.<br>
+                                        In general, obedience is an absence of speaking up or challenging arguments, opinions or instructions by leaders or peers.<br>
+                                        Complying with actions or opinions without challenging.</div>
+                                </div>
 
-                        <table cellpadding="5" style="font-family: Verdana, Geneva, sans-serif; font-size:1em; font-style: italic">
-                            <tbody>
-                            <tr>
-                                <td>making</td>
-                                <td>practicing</td><td>planning</td>
-                            </tr>
-                            <td>trying</td>
-                            <td>throwing</td>
+                                <div class="tab-pane fade" id="example3">&nbsp;
+                                    <p id="text_example3" style="font-weight:normal;"><b>Text:</b><br>Hey Lisa,
+                                        <br>It is out of my hands. Someone should pick up the ball regarding the upcoming event.<br> Regards, Svetha </p>
 
-                            </tbody>
-                        </table>
-                        &nbsp;
+                                    <label>What is the emotion presented in the text by the author?</label>
 
-                        <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
-                            <tbody>
-                            <tr>
-                                <td><input disabled="disabled" name="example2" type="radio" value="1" /> Yes</td>
-                            </tr>
-                            <tr><!--			<td><input checked="checked" disabled="disabled" name="example2" type="radio" value="2" /> Sometimes</td>-->
-                                <td><input disabled="disabled" name="example2" type="radio" value="2" /> No - <strong>please add a clarifying verb(s)</strong><textarea class="form-control input-sm" cols="20" disabled="disabled" id="example2-sometimes" name="example2-sometimes" rows="1" style="margin-top: 5px">started trying</textarea></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        &nbsp;
+                                    <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example3_general_emotion" type="radio" value="1" /> Negative Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example3_general_emotion" type="radio" value="1" /> Positive Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input checked="checked" disabled="disabled"  name="example3_general_emotion" type="radio" value="2" /> Miscellaneous Sentiment</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
 
-                        <div id="example2-sequent_section">
-                            <p>Expression 1: started some moves</p>
+                                    <label>Does the email author present <b>avoidance </b>sentiment?</label> <br>
+                                    <input checked="checked" disabled="disabled" name="example3_a" onclick="" type="radio" value="2" /> Yes
+                                    <input  disabled="disabled" name="example3_a" onclick="" type="radio" value="3" /> No
+                                    &nbsp;<br>
+                                    <p><b>Towards who/or what the emotion (if exist) directed to?</b> </p>
 
-                            <p>Expression 2: started demonstrating some moves</p>
-                            <label>Can the first expression have the same meaning of the second one? </label><br />
-                            <input checked="checked" disabled="disabled" name="example2" onclick="" type="radio" value="2" /> Yes <input disabled="disabled" name="example2" onclick="" type="radio" value="3" /> No</div>
-                        &nbsp;
+                                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
 
-                        <p>In this example, the second sentence can mean the same as the first sentence, but it is ambiguous and does not necessarily mean the same,<br />
-                            as it can also have the meaning of <b>simply performing</b> some moves.<br />
-                            Therefore, knowing the first sentence, doesn't necessarily make the second true, and that's why the answer is <b>No</b>.<br />
-                            Then, after selecting "No", a second question is asked.<br />
-                            In this case, as the first expression can lead to the second to be true, the answer to the second question would be "Yes". <!--	Add the marked verb from the second sentence for making the sentence grammatical (in this case we added the verb 'started' along with 'performing')<br/>--> <!--	Notice that the clarifying verb is performing, which have a different meaning from demonstrating. The verb "showing" is different, <br/>--> <!--	but is not considered as a valid answer for this example, as it doesn't provide the different meaning on how the first sentence can be read.--></p>
-                    </div>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed" type="radio" value="no direction" /> No Specific Direction ("Im happy")</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed"  type="radio" value="org" /> Organization ("This company sucks!)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed" checked="checked"  type="radio" value="someone" /> Specific Someone ("I think very highly of him!)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed"  type="radio" value="group" />  A Group of people ("The IT department is super helpful!)</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>&nbsp;
 
-                    <div class="tab-pane fade" id="example3">&nbsp;
-                        <p id="text_example3a" style="font-weight:normal;">Sentence 1: "They jumped onto the pier and <mark>started</mark> the boat."</p>
+                                    <div class="example3">Svetha demonstrated avoidance when she didn't show any intention to organize the upcoming event.<br>
+                                        In this case we would also mark that the sentiment was directed to someone (in this case Lisa).<br>
+                                        In general, we would avoidance is when vague or avoidant text is and and people avoid taking on themself a a task.</div>
+                                </div>&nbsp;
+                                <div class="tab-pane fade" id="example4">&nbsp;
+                                    <p id="text_example4" style="font-weight:normal;"><b>Text:</b><br> Hey Yuri<br> I am afraid I won't be able to finish the task on time.
+                                        Do you think Alex would approve it?<br> Regards, Hassan </p>
 
-                        <p id="text_example3b" style="font-weight:normal;">Sentence 2: "They jumped onto the pier and <mark>started untying</mark> the boat."</p>
-                        <label>Given the first sentence is true, is the second sentence also true?</label>
+                                    <label>What is the emotion presented in the text by the author?</label>
 
-                        <p>Verbs that could be interpreted for the first sentence:</p>
+                                    <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+                                        <tr>
+                                            <td><input checked="checked" disabled="disabled" name="example4_general_emotion" type="radio" value="1" /> Negative Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example4_general_emotion" type="radio" value="1" /> Positive Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled"  name="example4_general_emotion" type="radio" value="2" /> Miscellaneous Sentiment</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    &nbsp;<br>
+                                    <label>Which of the following negative emotion describes best the text by the author?</label>
 
-                        <table cellpadding="5" style="font-family: Verdana, Geneva, sans-serif; font-size:1em; font-style: italic">
-                            <tbody>
-                            <tr>
-                                <td>boarding</td>
-                                <td>rocking</td>
-                                <td>circling</td>
-                                <td>climbing</td>
-                                <td>watching</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        &nbsp;
+                                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example4_neg_ans" onclick="" type="radio" value="fear" /> Fear</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example4_neg_ans" onclick="" type="radio" value="anger" />  Anger</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example4_neg_ans" onclick="" type="radio" value="sadness" />  Sadness</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input checked="checked"  disabled="disabled" name="example4_neg_ans" onclick="" type="radio" value="disgust" />  Disgust</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example4_neg_ans" onclick="" type="radio" value="other" />  Other
+                                        </tr>
+                                        </tbody>
+                                    </table>
 
-                        <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
-                            <tbody>
-                            <tr>
-                                <td><input disabled="disabled" name="example3" type="radio" value="1" /> Yes</td>
-                            </tr>
-                            <tr>
-                                <td><input disabled="disabled" name="example3" type="radio" value="3" /> No - <strong>please add a clarifying verb(s)</strong><textarea class="form-control input-sm" cols="20" disabled="disabled" id="example3-no" name="example3-no" rows="1" style="margin-top: 5px">activated</textarea></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        &nbsp;
+                                    &nbsp;
+                                    <p><b>Towards who/or what the emotion (if exist) directed to?</b> </p>
 
-                        <div id="example3-sequent_section">
-                            <p>Expression 1: started the boat</p>
+                                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
 
-                            <p>Expression 2: started untying the boat</p>
-                            <label>Can the first expression have the same meaning of the second one? </label><br />
-                            <input disabled="disabled" name="example3" onclick="" type="radio" value="2" /> Yes <input checked="checked" disabled="disabled" name="example3" onclick="" type="radio" value="3" /> No</div>
-                        &nbsp;
+                                        <tr>
+                                            <td><input checked="checked"  disabled="disabled" name="example2_directed" type="radio" value="no direction" /> No Specific Direction ("Im happy")</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed"  type="radio" value="org" /> Organization ("This company sucks!)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed"  type="radio" value="someone" /> Specific Someone ("I think very highly of him!)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example2_directed"  type="radio" value="group" />  A Group of people ("The IT department is super helpful!)</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>&nbsp;
 
-                        <p>In this example, the first sentence is about turning on (igniting) a boat, whereas the second sentence,<br />
-                            talks about untying a boat.<br />
-                            Therefore, By knowing the first sentence is true, the second isn't and the answer is <b>No</b>.<br />
-                            If the clarifying verb replaces the first verb, do not include it in the answer (in this case we only added 'activated')<br />
-                            Notice the clarifying verb is "activated", as it provides a different meaning than "untying".<br />
-                            Similarly to the previous example, verbs like "untying", "unleashing" which have the same or similar meaning as the presented verb,<br />
-                            are not acceptable answer. The clarifying verb should be with a different meaning of the given one,<br />
-                            such as "activated" (the given one here), "using" or "operating" are good completions.</p>
-                    </div>
-                    <!--  --><!--  --></div>
+                                    <div class="example4">Hassan is nervous he would be able to complete his task, and advise his peer, Yuri, for advice.<br>
+                                        The sentiment is not directed to Yuri, or ot Hassan boss, but does not direct to anyone at all.
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="example5">&nbsp;
+                                    <p id="text_example5" style="font-weight:normal;"><b>Text:</b><br> Hey Donna,<br> Something is off in slides 4, 7 and 10, they just look bad. <br> Please fix it.
+                                        Don </p>
+
+                                    <label>What is the emotion presented in the text by the author?</label>
+
+                                    <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+                                        <tr>
+                                            <td><input checked="checked" disabled="disabled" name="example5_general_emotion" type="radio" value="1" /> Negative Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example45general_emotion" type="radio" value="1" /> Positive Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled"  name="example5_general_emotion" type="radio" value="2" /> Miscellaneous Sentiment</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    &nbsp;<br>
+                                    <label>Which of the following negative emotion describes best the text by the author?</label>
+
+                                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example5_neg_ans" onclick="" type="radio" value="fear" /> Fear</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example5_neg_ans" onclick="" type="radio" value="anger" />  Anger</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example5_neg_ans" onclick="" type="radio" value="sadness" />  Sadness</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example5_neg_ans" onclick="" type="radio" value="disgust" />  Disgust</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example5_neg_ans" onclick="" type="radio" value="other" />  Other
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    &nbsp;
+                                    <p><b>Towards who/or what the emotion (if exist) directed to?</b> </p>
+
+                                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example5_directed" type="radio" value="no direction" /> No Specific Direction ("Im happy")</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example5_directed"  type="radio" value="org" /> Organization ("This company sucks!)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input checked="checked"  disabled="disabled" name="example5_directed"  type="radio" value="someone" /> Specific Someone ("I think very highly of him!)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example5_directed"  type="radio" value="group" />  A Group of people ("The IT department is super helpful!)</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>&nbsp;
+                                    <!--TODO fix example-->
+                                    <div class="example5"> Don is irritated by some of the slides he saw in Yuri presentation. The sentiment is direct towards Donna (or Donna's slides).<br>
+                                        We would mark annoyance when there is a feeling of irritation from someone actions.
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="example6">&nbsp;
+                                    <p id="text_example6" style="font-weight:normal;"><b>Text:</b><br> Hey Shon,<br>
+                                        Did you heard the news? The new management board fired half of Michael team... <br>
+                                        I saw we have a meeting in an hour, hope we would be OK.<br>
+                                        Zion</p>
+
+                                    <label>What is the emotion presented in the text by the author?</label>
+
+                                    <table border="0" cellpadding="4" cellspacing="0" style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+                                        <tr>
+                                            <td><input checked="checked" disabled="disabled" name="example5_general_emotion" type="radio" value="1" /> Negative Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example45general_emotion" type="radio" value="1" /> Positive Sentiment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled"  name="example5_general_emotion" type="radio" value="2" /> Miscellaneous Sentiment</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    &nbsp;<br>
+                                    <label>Which of the following negative emotion describes best the text by the author?</label>
+
+                                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+                                        <tr>
+                                            <td><input checked="checked" disabled="disabled" name="example6_neg_ans" onclick="" type="radio" value="fear" /> Fear</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example6_neg_ans" onclick="" type="radio" value="anger" />  Anger</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example6_neg_ans" onclick="" type="radio" value="sadness" />  Sadness</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input  disabled="disabled" name="example6_neg_ans" onclick="" type="radio" value="disgust" />  Disgust</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example6_neg_ans" onclick="" type="radio" value="other" />  Other
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    &nbsp;
+                                    <p><b>Towards who/or what the emotion (if exist) directed to?</b> </p>
+
+                                    <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                        <tbody>
+
+                                        <tr>
+                                            <td><input disabled="disabled" name="example6_directed" type="radio" value="no direction" /> No Specific Direction ("Im happy")</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example6_directed"  type="radio" value="org" /> Organization ("This company sucks!)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input disabled="disabled" name="example6_directed"  type="radio" value="someone" /> Specific Someone ("I think very highly of him!)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input checked="checked" disabled="disabled" name="example6_directed"  type="radio" value="group" />  A Group of people ("The IT department is super helpful!)</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>&nbsp;
+
+                                    <div class="example6">Zion is afraid of being fired, the sentiment is directed towards the managing board and their actions. <br>
+                                        We would mark fear when someone is under an unpleasant threat of danger, pain or harm.
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- End Instructions --><!-- Content Body -->
+
+            <crowd-form>
+                <fieldset>
+                    <p class="yellow" id="text_b" style="font-weight:normal;"><b>Text</b>: ${text}</p>
+                    <br />
+                    <label>What is the emotion presented in the text by the author?</label>
+
+                    <table  style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                        <tbody class="cc-selector-main">
+                        <tr>
+                            <td><input name="main_emotion" onclick=" cleanAndHide('sequent_section');cleanAndHide('is_avoidance'); show('neg_options') ; cleanAndHide('pos_options'); " type="radio" value="neg" />  Negative Sentiment</td>
+                        </tr>
+                        <tr>
+                            <td><input name="main_emotion" onclick=" cleanAndHide('sequent_section');cleanAndHide('is_avoidance');show('pos_options'); cleanAndHide('neg_options');" type="radio" value="pos" />  Positive Sentiment</td>
+                        </tr>
+                        <tr>
+                            <td><input name="main_emotion" onclick=" cleanAndHide('sequent_section');show('is_avoidance'); cleanAndHide('neg_options');cleanAndHide('pos_options');" type="radio" value="misc" />  Miscellaneous Sentiment</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    &nbsp;
+
+                    <div id="neg_options" style="display: none;">
+                        <label>Which of the following negative emotion describes best the text by the author?</label>
+
+                        <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                            <tbody class="cc-selector-neg">
+                            <tr>
+                                <td><input name="neg_ans" onclick=" show('sequent_section'); cleanAndHide('comment-other');" type="radio" value="fear" /> Fear</td>
+                            </tr>
+                            <tr>
+                                <td><input name="neg_ans" onclick=" show('sequent_section');cleanAndHide('comment-other');" type="radio" value="anger" />  Anger</td>
+                            </tr>
+                            <tr>
+                                <td><input name="neg_ans" onclick=" show('sequent_section');cleanAndHide('comment-other');" type="radio" value="disapproval" />  Sadness</td>
+                            </tr>
+                            <tr>
+                                <td><input name="neg_ans" onclick=" show('sequent_section');cleanAndHide('comment-other');" type="radio" value="nervousness" />  Disgust</td>
+                            </tr>
+                            <tr>
+                                <td><input name="neg_ans" onclick=" show('comment-other');" type="radio" value="other" />  Other
+                                    <label for="comment-other"></label><textarea class="neg_ans" cols="20" id="comment-other" name="other-neg" rows="1" style="display: none; margin-top: 5px"></textarea></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    &nbsp;
+                    <div id="pos_options" style="display: none;">
+                        <label>Which of the following positive emotion describes best the text by the author?</label>
+
+                        <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                            <tbody class="cc-selector-pos">
+                            <tr>
+                                <td><input name="pos_ans" onclick=" cleanAndHide('sequent_section'); show('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="admiration" /> Admiration</td>
+                            </tr>
+                            <tr>
+                                <td><input name="pos_ans" onclick="cleanAndHide('sequent_section');show('sequent_section');cleanAndHide('comment-pos-other');" type="radio" value="approval" />  Approval</td>
+                            </tr>
+                            <tr>
+                                <td><input name="pos_ans" onclick=" show('comment-pos-other');" type="radio" value="other" />  Other
+                                    <label for="comment-other"></label><textarea onclick=" cleanAndHide('sequent_section');show('sequent_section');" class="neg_ans" cols="20" id="comment-pos-other" name="pos_other" rows="1" style="display: none; margin-top: 5px"></textarea></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    &nbsp;
+
+                    <div id="is_avoidance" style="display: none;">
+                        <label> Does the email author present <b>avoidance </b>sentiment?</label>
+
+                        <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <input name="avoidance_bool" onclick="  show('sequent_section'); cleanAndHide('is_obedience');" type="radio" value=true /> Yes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input name="avoidance_bool" onclick=" cleanAndHide('sequent_section');show('is_obedience');" type="radio" value=false />  No
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div id="is_obedience" style="display: none;">
+                            <label>Does the email author present <b>obedience</b> sentiment?</label>
+
+                            <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                <tbody>
+                                <tr>
+                                    <td><input name="obedience_bool" onclick=" show('sequent_section'); cleanAndHide('misc_options');" type="radio" value=true /> Yes</td>
+                                </tr>
+                                <tr>
+                                    <td><input name="obedience_bool" onclick=" cleanAndHide('sequent_section');show('misc_options');" type="radio" value=false />  No</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div id="misc_options" style="display: none;">
+                                <label>Which of the following emotion describes best the text by the author?</label>
+
+                                <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                                    <tbody class="cc-selector-misc">
+                                    <tr>
+                                        <td><input name="misc_ans" onclick=" show('sequent_section'); cleanAndHide('comment-misc-other');" type="radio" value="curiosity" /> Curiosity/Interest</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input name="misc_ans" onclick="  show('sequent_section');cleanAndHide('comment-misc-other');" type="radio" value="Watchfulness" /> Watchfulness</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input name="misc_ans" onclick="cleanAndHide('comment-misc-other');" type="radio" value="neutral" />  Neutral-<b>No Emotion</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input name="misc_ans" onclick=" show('sequent_section');show('comment-misc-other');" type="radio" value="other" />  Other
+                                            <label for="comment-other"></label><textarea class="neg_ans" cols="20" id="comment-misc-other" name="other-emotion" rows="1" style="display: none; margin-top: 5px"></textarea></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        &nbsp;
+                    </div>
+                    &nbsp;
 
 
-    <!-- End Instructions --><!-- Content Body -->
 
-    <section>
-        <fieldset>
-            <p class="yellow" id="text_a" style="font-weight:normal;">Sentence 1: ${xcompless_text_html}</p>
+                    &nbsp;
+                    <div id="sequent_section" style="display: none;">
 
-            <p class="yellow" id="text_b" style="font-weight:normal;">Sentence 2: ${origin_text_html}</p>
-            <br />
-            <label>Given the first sentence is true, is the second sentence always true?</label>
+                        <p>Towards who/or what the emotion (if exist) directed to? </p>
 
-            <p>Verbs that could be interpreted for the first sentence:</p>
+                        <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
+                            <tbody>
 
-            <table cellpadding="5" style="font-family: Verdana, Geneva, sans-serif; font-size:1em; font-style: italic">
-                <tbody>
-                <tr>
-                    <td>${v1}</td>
-                    <td>${v2}</td>
-                    <td>${v3}</td>
-                    <td>${v4}</td>
-                    <td>${v5}</td>
-                </tr>
-                </tbody>
-            </table>
-            &nbsp;
+                            <tr>
+                                <td><input name="directed" type="radio" value="no direction" /> No Specific Direction ("Im happy")</td>
+                            </tr>
+                            <tr>
+                                <td><input name="directed"  type="radio" value="org" /> Organization ("This company sucks!)</td>
+                            </tr>
+                            <tr>
+                                <td><input name="directed"  type="radio" value="someone" /> Specific Someone ("I think very highly of him!)</td>
+                            </tr>
+                            <tr>
+                                <td><input name="directed"  type="radio" value="group" />  A Group of people ("The IT department is super helpful!)</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        &nbsp;</div>
 
-            <table style="font-family: Verdana, Geneva, sans-serif; font-size:1em;">
-                <tbody>
-                <tr>
-                    <td><input name="ans" onclick="cleanAndHide('no'); cleanAndHide('sequent_section');" type="radio" value="1" /> Yes</td>
-                </tr>
-                <tr>
-                    <td><input name="ans" onclick="show('no'); show('sequent_section')" type="radio" value="4" /> No - <strong>please add a clarifying verb(s)</strong><textarea class="form-control input-sm" cols="20" id="no" name="no" rows="1" style="display: none; margin-top: 5px"></textarea></td>
-                </tr>
-                </tbody>
-            </table>
-            &nbsp;
+                    &nbsp;
+                    <br />
+                    <br />
+                    <label>Would you like to add a comment?</label>&nbsp;<br />
+                    <crowd-text-area name="comment" maxlength="250" rows="1"> </crowd-text-area>
+            </crowd-form>
 
-            <div id="sequent_section" style="display: none;">
-                <p>Expression 1: ${sub1}</p>
-
-                <p>Expression 2: ${sub2}</p>
-                <label>Can the first expression have the same meaning of the second one? </label><br />
-                <input name="ans" onclick="" type="radio" value="2" /> Yes <input name="ans" onclick="" type="radio" value="3" /> No</div>
-            &nbsp;
-
-            <div class="alert alert-warning">when providing a clarifying verb, it must be different (both lexically and semantically) from the original verb that was dropped from the second sentence.</div>
-            <label>Would you like to add a comment?</label>&nbsp;<br />
-            <textarea class="form-control" cols="85" id="comment" maxlength="250" name="comment" rows="1"></textarea></fieldset>
-    </section>
-    <!-- End Content Body</div> --></div>
+            <!-- End Content Body</div> --></div>
 </section>
 <!-- close container -->
 <style type="text/css">fieldset { padding: 10px; background:#fbfbfb; border-radius:5px; margin-bottom:5px; }
@@ -316,5 +619,28 @@ p.yellow::-moz-selection { /* Code for Firefox */
         hide(elementID);
         cleanText(elementID);
     }
+    //Randoized the order of the radio buttons, every function operate on a different class
+    $(".cc-selector-main").html(
+        $(".cc-selector-main").children().sort(function() { // What I propose you
+            return (Math.random() - 0.5); // No need to use 'round()'
+        })
+    );
+    $(".cc-selector-neg").html(
+        $(".cc-selector-neg").children().sort(function() { // What I propose you
+            return (Math.random() - 0.5); // No need to use 'round()'
+        })
+    );
+    $(".cc-selector-pos").html(
+        $(".cc-selector-pos").children().sort(function() { // What I propose you
+            return (Math.random() - 0.5); // No need to use 'round()'
+        })
+    );
+    $(".cc-selector-misc").html(
+        $(".cc-selector-misc").children().sort(function() { // What I propose you
+            return (Math.random() - 0.5); // No need to use 'round()'
+        })
+    );
+
+
 
 </script>
